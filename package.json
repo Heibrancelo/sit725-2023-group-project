@@ -1,0 +1,19 @@
+{
+  "name": "week8",
+  "version": "1.0.0",
+  "description": "Demostrating a new node application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "js"
+  ],
+  "author": "Akashdeep",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6"
+  }
+}
