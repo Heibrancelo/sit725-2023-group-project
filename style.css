@@ -1,0 +1,17 @@
+/* Custom Fancy Theme */
+body {
+    background-color: #ffffff;
+    color: #FFFFFF;
+    margin: 1rem;
+}
+
+
+    .login-button {
+    background-color: green;
+    margin-top: 50px;
+    }
+    .signup-button {
+        background-color: green;
+        margin-top: 50px;
+        }
+
