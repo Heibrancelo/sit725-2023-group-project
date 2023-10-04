@@ -33,17 +33,21 @@ function calculateTotal() {
         totalItems += quantity;
     });
 
-    // If a discount is applied, reduce the total by 10%
-    
     // Update the total price and total items in the summary
     const subTotalPriceDisplay = document.getElementById("total-price-display");
     subTotalPriceDisplay.textContent = "SUB TOTAL $ " + total.toFixed(2);
 
     const totalPriceDisplay = document.getElementById("display-total-price");
-    total += 5;
+
+    // Calculate tax and add it to the total
+    const tax = 5;
+    total += tax;
+
+    // Apply the discount if it's enabled
     if (discountApplied) {
         total *= 0.9; // 10% discount
     }
+
     totalPriceDisplay.textContent = "$ " + total.toFixed(2);
 
     const totalItemsDisplay = document.getElementById("total-items-display");
@@ -51,13 +55,19 @@ function calculateTotal() {
 }
 
 // Function to apply the discount
-function applyDiscount() {
+function applyDiscount(event) {
+    event.preventDefault(); 
     const codeInput = document.getElementById("code").value;
+    console.log("Entered discount code:", codeInput);
+
     if (codeInput === "DISCOUNT10") {
         discountApplied = true;
+        console.log("Discount applied");
         calculateTotal(); // Recalculate the total with the discount
     } else {
         discountApplied = false;
+        console.log("Discount not applied");
+        calculateTotal(); // Recalculate the total without the discount
     }
 }
 
@@ -68,3 +78,15 @@ function removeProduct(closeButton) {
     // Calculate the total cart price and total items after removing the product
     calculateTotal();
 }
+
+function navigateToPaymentPage() {
+    // Redirect to the payment page when the checkout button is clicked
+    window.location.href = "payment.html";
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function () {
+    const elems = document.querySelectorAll('.sidenav');
+    const instances = M.Sidenav.init(elems);
+    calculateTotal(); // Calculate the initial total when the page loads
+});
