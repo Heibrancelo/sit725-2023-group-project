@@ -78,14 +78,14 @@ a{
     padding: 0 1vh;
 }
 .close{
-    margin-left: auto;
+    margin-right: auto;
     font-size: 0.7rem;
 }
 img{
     width: 3.5rem;
 }
 .back-to-shop{
-    margin-top: 4.5rem;
+    margin-top: 10.5rem;
 }
 h5{
     margin-top: 4vh;
@@ -102,7 +102,8 @@ select{
     margin-bottom: 4vh;
     outline: none;
     width: 100%;
-    background-color: rgb(247, 247, 247);
+    /* background-color: rgb(247, 247, 247); */
+    color: black !important;
 }
 input{
     border: 1px solid rgba(0, 0, 0, 0.137);

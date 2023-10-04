@@ -1,119 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Foodie Fare</title>
+    <!-- CSS Stylesheet, Scripts-->
+    <!--shopping cart-->
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="card">
-        <div class="row">
-            <div class="col-md-8 cart">
-                <div class="title">
-                    <div class="row">
-                        <div class="col">
-                            <h4><b>Shopping Cart</b></h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 1 -->
-                <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col">
-                            <div class="row text-muted">Chicken Chilli</div>
-                            <div class="row"></div>
-                        </div>
-                        <div class="col">
-                            <a href="javascript:void(0);" onclick="updateQuantity('product1', 'decrement')">-</a>
-                            <span class="border" id="product1-quantity">1</span>
-                            <a href="javascript:void(0);" onclick="updateQuantity('product1', 'increment')">+</a>
-                        </div>
-                        <div class="col">$ 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="row">
-                    <div class="row main align-items-center">
-                        <div class="col">
-                            <div class="row text-muted">Roti</div>
-                            <div class="row"></div>
-                        </div>
-                        <div class="col">
-                            <a href="javascript:void(0);" onclick="updateQuantity('product2', 'decrement')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</a>
-                            <span class="border" id="product2-quantity">1</span>
-                            <a href="javascript:void(0);" onclick="updateQuantity('product2', 'increment')">+</a>
-                        </div>
-                        <div class="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ 14.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
-            </div>
-            <div class="col-md-4 summary">
-                <div>
-                    <h5><b>Summary</b></h5>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col" style="padding-left:0;">ITEMS 3</div>
-                    <div class="col text-right">$ 58.00</div>
-                </div>
-                <form>
-                    <p>Tax</p>
-                    <select>
-                        <option class="text-muted">Tax $5.00</option>
-                    </select>
-                    <p>GIVE CODE</p>
-                    <input id="code" placeholder="Enter your code">
-                </form>
-                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                    <div class="col">TOTAL PRICE</div>
-                    <div class="col text-right">$ 63.00</div>
-                </div>
-                <button class="btn">CHECKOUT</button>
-            </div>
+    <style>
+        /* CSS for making header and footer full width */
+        .header-footer {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+   
+  </head>
+  <body>
+    <!--HEADER-->
+    <div class="header-footer">
+    <header>
+      <nav class="nav-wraper">
+        <div class="container">
+          <a href="index.html" class="brand-logo"><img src="./images/ff.png" alt="" width="30px">
+          <a href="index.html" data-target="mobile-menu" class="sidenav-trigger">
+          <i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stalls.html">Stalls</a></li>
+            <li><a href="search.html">Search</a></li>
+          </ul>
         </div>
-    </div>
+      </nav>
+      </nav>
+      <!--Mobile Side Nav-->
+      <ul class="sidenav" id="mobile-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="account.html">My Account</a></li>
+        <li><a href="stalls.html">Stalls</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="signup.html" class="waves-effect waves-light btn">Sign Up</a></li>
+        <li><a href="login.html" class="waves-effect waves-light btn">Login</a></li>
+      </ul>
+      <br>
+      <br>
+      <br>   
+      <div class="card">
+        <div class="row">
+          <div class="col-md-8 cart">
+            <div class="title">
+              <div class="row">
+                <div class="col">
+                  <h4><b>Shopping Cart</b></h4>
+                </div>
+              </div>
+            </div>
+            <!-- Product 1 -->
+            <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col">
+                  <div class="row text-muted">Chicken Chilli</div>
+                  <div class="row"></div>
+                </div>
+                <div class="col">
+                  <a href="javascript:void(0);" onclick="updateQuantity('product1', 'decrement')">-</a>
+                  <span class="border" id="product1-quantity">1</span>
+                  <a href="javascript:void(0);" onclick="updateQuantity('product1', 'increment')">+</a>
+                </div>
+                <div class="col"><span class="price">$ 44.00</span> <span class="close" onclick="removeProduct(this)">&#10005;</span></div>
+              </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="row">
+              <div class="row main align-items-center">
+                <div class="col">
+                  <div class="row text-muted">Roti</div>
+                  <div class="row"></div>
+                </div>
+                <div class="col">
+                  <a href="javascript:void(0);" onclick="updateQuantity('product2', 'decrement')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</a>
+                  <span class="border" id="product2-quantity">1</span>
+                  <a href="javascript:void(0);" onclick="updateQuantity('product2', 'increment')">+</a>
+                </div>
+                <div class="col"><span class="price">$ 14.00</span> <span class="close" onclick="removeProduct(this)">&#10005;</span></div>
+              </div>
+            </div>
+            <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+          </div>
+          <div class="col-md-4 summary">
+            <div>
+              <h5><b>Summary</b></h5>
+            </div>
+            <hr>
+            <div class="row" id="total-items-display">
+              <div class="col" style="padding-left:0;">ITEMS 0</div>
+            </div>
+            <div class="row" id="total-price-display">
+              <div class="col" style="padding-left:0;">SUB TOTAL 0</div>
+            </div>
+            <form>
+              <div class="row" id="tax-display">
+                <div class="col" style="padding-left:0;">TAX</div>
+                <div class="col text-right" id="tax-display">$ 5.00</div>
+              </div>
+              <p>GIVE CODE</p>
+              <input id="code" placeholder="Enter your code">
+              <div class="col">Enter discount code as "DISCOUNT10"</div>
+            </form>
+            <br>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+              <div class="col">TOTAL PRICE</div>
+              <div class="col text-right" id="display-total-price">$ 0.00</div>
+            </div>
+            <button class="btn" onclick="applyDiscount()">CHECKOUT</button>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Market Stall</h5>
+              <p class="grey-text text-lighten-4">Discover and reserve market stalls with ease!</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Quick Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="home.html">Home</a></li>
+                <li><a class="grey-text text-lighten-3" href="account.html">My Account</a></li>
+                <li><a class="grey-text text-lighten-3" href="stalls.html">Stalls</a></li>
+                <li><a class="grey-text text-lighten-3" href="search.html">Search</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </header>
+</div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="cart.js"></script>
     <script>
-        // JavaScript functions to update quantity
-        function updateQuantity(item, action) {
-            const quantityElement = document.getElementById(item + "-quantity");
-            let quantity = parseInt(quantityElement.textContent);
-
-            if (action === "increment") {
-                quantity += 1;
-            } else if (action === "decrement" && quantity > 1) {
-                quantity -= 1;
-            }
-
-            quantityElement.textContent = quantity;
-
-            // You can also update the total cart price here if needed
-
-            // Calculate the total cart price
-            calculateTotal();
-        }
-
-        // Function to calculate the total cart price
-        function calculateTotal() {
-            const quantities = document.querySelectorAll(".border");
-            const prices = document.querySelectorAll(".col");
-
-            let total = 0;
-            quantities.forEach(function (quantityElement, index) {
-                const quantity = parseInt(quantityElement.textContent);
-                if (quantity > 0) {
-                    const price = parseFloat(prices[index].textContent.trim().replace(/[^0-9.]+/g, ""));
-                    total += quantity * price;
-                }
-            });
-
-            // Update the total price in the summary
-            document.getElementById("total-price").textContent = "€ " + total.toFixed(2);
-        }
+      document.addEventListener('DOMContentLoaded', function () {
+          const elems = document.querySelectorAll('.sidenav');
+          const instances = M.Sidenav.init(elems);
+      });
     </script>
-</body>
+  </body>
 </html>
