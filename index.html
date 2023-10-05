@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="main-stylesheet.css">
     <script src="script.js" defer></script>
     <script src="server.js" defer></script>
+    <script src="displaystalls.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
     <!-- MaterializeCSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -64,13 +67,9 @@
                     <br><br>
 
                     <!--USERNAME ID -->
-                    <h2 class="header center orange-text">Welcome, <span id="user-name">Loading...</span></h2>
-                    <div class="row center">
-                        <br>
-                        <a href="#order-now-button" id="download-button" class="btn-large waves-effect waves-light orange">Start
-                            ordering!</a>
-                    </div>
-                    <br><br>
+                    <h2 class="header center orange-text">Join Us Today <span id="user-name"></span></h2>
+                    <br>
+                    <br>
 
                 </div>
             </div>
@@ -85,12 +84,15 @@
                 <div class="col s12 m5">
                     <ul class="collapsible">
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">place</i>Burwood Market</div>
+                            <div class="collapsible-header"><i class="material-icons circle orange">place</i>Burwood
+                                Market</div>
                             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">place</i>Geelong Market</div>
-                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.</span></div>
+                            <div class="collapsible-header"><i class="material-icons circle orange">place</i>Geelong
+                                Market</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet Lorem ipsum dolor sit
+                                    amet.</span></div>
                         </li>
                     </ul>
                 </div>
@@ -100,17 +102,23 @@
 
         </section>
 
+
+       
+
         <!-- Stalls 9 Boxes  -->
-        <section class="list-of-stalls">
+       <section class="list-of-stalls">
+
             <div class="container black-text">
+
                 <a id="order-now-button"></a>
+
                 <h3>List of Stalls</h3>
                 <div class="row">
 
                     <div class="col s12 m6 l3">
                         <div class="card" id="stall-001">
                             <div class="card-image">
-                                <img src="images/sweet-spice-stall.jpg">
+                                <img src="./images/stall-icon.jpeg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title">Sweet Spice</span>
@@ -126,11 +134,11 @@
                     <div class="col s12 m6 l3">
                         <div class="card" id="stall-002">
                             <div class="card-image">
-                                <img src="images/sample-1.jpg">
+                                <img src="./images/stall-icon.jpeg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title">Seafood Shack</span>
-                                <p>Seafood lovers unite! Dive into a variety of fresh and flavorful seafood options from
+                                <p>Seafood lovers unite! Dive into a wide variety of fresh and flavorful seafood options from
                                     lobsters to crabs.</p>
                             </div>
                             <div class="card-action center">
@@ -143,11 +151,11 @@
                     <div class="col s12 m6 l3">
                         <div class="card" id="stall-003">
                             <div class="card-image">
-                                <img src="images/sample-1.jpg">
+                                <img src="./images/stall-icon.jpeg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title">Pasta Master</span>
-                                <p>Explore the world of pasta with a mix of classic and innovative recipes, each dish a
+                                <p>Explore the world of pasta with a wonderful mix of classic and innovative recipes, each dish a
                                     culinary masterpiece.</p>
                             </div>
                             <div class="card-action center">
@@ -160,11 +168,11 @@
                     <div class="col s12 m6 l3">
                         <div class="card" id="stall-004">
                             <div class="card-image">
-                                <img src="images/sample-1.jpg">
+                                <img src="./images/stall-icon.jpeg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title">Vegan Corner</span>
-                                <p>A plant-based stall offering a delightful range of vegan options, full of flavor and
+                                <p>This is our plant-based stall offering a delightful and wide range of vegan options, full of flavor and
                                     ethical goodness.</p>
                             </div>
                             <div class="card-action center">
@@ -172,78 +180,64 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="col s12 m6 l3">
-                        <div class="card" id="stall-005">
-                            <div class="card-image">
-                                <img src="images/sample-1.jpg">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">Stall 00</span>
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                            <div class="card-action center">
-                                <a href="#">Enter</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col s12 m6 l3">
-                        <div class="card" id="stall-006">
-                            <div class="card-image">
-                                <img src="images/sample-1.jpg">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">Stall 00</span>
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                            <div class="card-action center">
-                                <a href="#">Enter</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col s12 m6 l3">
-                        <div class="card" id="stall-007">
-                            <div class="card-image">
-                                <img src="images/sample-1.jpg">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">Stall 00</span>
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                            <div class="card-action center">
-                                <a href="#">Enter</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col s12 m6 l3">
-                        <div class="card" id="stall-008">
-                            <div class="card-image">
-                                <img src="images/sample-1.jpg">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">Stall 00</span>
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                            <div class="card-action center">
-                                <a href="#">Enter</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </div>
+        </section> -->
+        
+        
+        <section class="list-of-stalls">
+            <div class="container black-text">
+                <h3>Newly added Stalls</h3>
+                <div class="row" id="stall-section">
+                    
+                <!-- Stalls will be added here -->
 
-
+                </div>
             </div>
         </section>
+     
+            <!--Add Stall-->
+        <section>
+            <br>
+            <br>
+            <div class="section black-text">
+                <div class="container">
+                            <h4>Don't see a stall in the website?</h4>
+                            <p>Let us know by filling in the form below.</p>
+                
+                    <form id="stall-form" action="">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="stallName" type="text">
+                                <label for="stallName">Stall Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="stallDescription" type="text">
+                                <label for="stallDescription">Stall Description</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="imagePath" type="text">
+                                <label for="imagePath">Image Path</label>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <a class="waves-effect waves-light btn signup-button" id="stall-formSubmit">Submit</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>        
+
+
+
+    
+       
+        <br>
+        <br>
 
 
 
@@ -270,16 +264,6 @@
 
     </body>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const elems = document.querySelectorAll('.sidenav');
-            const instances = M.Sidenav.init(elems);
-        });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.collapsible');
-            var instances = M.Collapsible.init(elems, options);
-        });
-    </script>
 
 </html>
