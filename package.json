@@ -5,7 +5,7 @@
   "main": "payment.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node your-script.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Heibrancelo/sit725-2023-group-project/issues"
   },
-  "homepage": "https://github.com/Heibrancelo/sit725-2023-group-project#readme"
+  "homepage": "https://github.com/Heibrancelo/sit725-2023-group-project#readme",
+  "dependencies": {
+    "jspdf": "^2.5.1",
+    "mongodb": "^6.1.0"
+  }
 }
