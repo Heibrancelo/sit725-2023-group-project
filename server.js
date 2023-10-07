@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+const path = require('path');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://akashdeepakashdeep271291:Ar1un%408ha@cluster0.iopmovp.mongodb.net/?retryWrites=true&w=majority";
 let port = process.env.port || 3000;
@@ -7,10 +8,12 @@ let collection;
 let collection2;
 let collection3;
 let collectionStall;
+let menuCollection;
 
 app.use(express.static(__dirname + '/'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use('/images', express.static(__dirname + '/images'));
 
 
 const client = new MongoClient(uri, {
@@ -20,6 +23,7 @@ const client = new MongoClient(uri, {
         deprecationErrors: true,
     }
 });
+
 
 async function runDBConnection() {
     try {
@@ -61,9 +65,52 @@ async function runDBConnectionStall() {
     }
 }
 
+async function runDBmenuCollection() {
+    try {
+        await client.connect();
+        menuCollection = client.db().collection("Menus");
+        console.log("Connected to MongoDB");
+        console.log(menuCollection);
+    }catch (ex) {
+        console.error(ex);
+    } 
+
+}
+
 app.get('/', function (req, res) {
     res.render('index.html');
 });
+
+
+app.get('/menu', async function (req, res) {
+    try {
+        const restaurantId = req.query.id;
+        const name = req.query.name || '';
+        const menuItems = await menuCollection.find({ restaurentId: restaurantId }).toArray();
+        res.render('menu', { menuItems, name, restaurantId });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server error');
+    }
+});
+
+
+
+//mongodb id
+app.get('/filterItems/:itemId', async (req, res) => {
+    try {
+        const itemId = req.params.itemId;
+        const filteredItems = await menuCollection.find({ _id: itemId }).toArray();
+        res.json(filteredItems);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 
 app.post('/api/signup', (req,res)=>{
@@ -99,6 +146,7 @@ app.listen(port, () => {
     runDBConnection2();
     runDBConnection3();
     runDBConnectionpayment();
+    runDBmenuCollection();
 });
 
 async function runDBConnectionpayment() {
