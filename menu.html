@@ -1,0 +1,1147 @@
+
+
+<!DOCTYPE html>
+
+ 
+
+<html lang="en">
+
+ 
+
+<head>
+
+ 
+
+    <meta charset="UTF-8">
+
+ 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 
+
+    <title>Your Restaurant Name | Menu</title>
+
+ 
+
+    <style>
+
+ 
+
+    body {
+
+ 
+
+    font-family: Arial, sans-serif;
+
+ 
+
+    background-color: #f8f8f8;
+
+ 
+
+    margin: 0;
+
+ 
+
+    padding: 0;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+.menu-items {
+
+ 
+
+    display: flex;
+
+ 
+
+    flex-wrap: wrap;
+
+ 
+
+    gap: 16px;
+
+ 
+
+    justify-content: center;
+
+ 
+
+    padding: 16px;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+.menu-item {
+
+ 
+
+    background-color: #fff;
+
+ 
+
+    border-radius: 8px;
+
+ 
+
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+ 
+
+    overflow: hidden;
+
+ 
+
+    width: calc(33.333% - 16px); /* Adjusts the width considering the gap */
+
+ 
+
+    margin-bottom: 16px;
+
+ 
+
+    text-align: center;
+
+ 
+
+    transition: 0.3s;
+
+ 
+
+}
+
+ 
+
+.menu-item:hover {
+
+ 
+
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+.menu-item img {
+
+ 
+
+    width: 100%; /* Ensures image takes full width of .menu-item */
+
+ 
+
+    height: 160px; /* Adjust height as per requirement */
+
+ 
+
+    object-fit: cover; /* Ensures images cover the area without distortion */
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+.menu-item h3 {
+
+ 
+
+    color: #333;
+
+ 
+
+    margin: 16px 0;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+.menu-item p {
+
+ 
+
+    color: #666;
+
+ 
+
+    margin: 0 0 16px 0;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+.menu-item button {
+
+ 
+
+    background-color: #e44d26;
+
+ 
+
+    color: #fff;
+
+ 
+
+    border: none;
+
+ 
+
+    padding: 10px 16px;
+
+ 
+
+    margin: 16px;
+
+ 
+
+    border-radius: 4px;
+
+ 
+
+    cursor: pointer;
+
+ 
+
+    transition: 0.3s;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+.menu-item button:hover {
+
+ 
+
+    background-color: #c44121;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+/* Existing CSS ... */
+
+ 
+
+ 
+
+ 
+
+/* Search and Veg Toggle */
+
+ 
+
+.search-veg-container {
+
+ 
+
+    display: flex;
+
+ 
+
+    justify-content: space-between;
+
+ 
+
+    padding: 16px;
+
+ 
+
+    background-color: #fff;
+
+ 
+
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+#searchBar {
+
+ 
+
+    padding: 10px;
+
+ 
+
+    width: 70%;
+
+ 
+
+    border: 1px solid #ddd;
+
+ 
+
+    border-radius: 4px;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+#vegToggle + label {
+
+ 
+
+    display: flex;
+
+ 
+
+    align-items: center;
+
+ 
+
+    cursor: pointer;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+#vegToggle {
+
+ 
+
+    display: none;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+#vegToggle + label:before {
+
+ 
+
+    content: "";
+
+ 
+
+    display: block;
+
+ 
+
+    width: 20px;
+
+ 
+
+    height: 20px;
+
+ 
+
+    margin-right: 8px;
+
+ 
+
+    background-color: #eee;
+
+ 
+
+    border: 2px solid #ddd;
+
+ 
+
+    border-radius: 4px;
+
+ 
+
+    transition: background-color 0.3s;
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+#vegToggle:checked + label:before {
+
+ 
+
+    background-color: #8bc34a; /* You might adjust the color */
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  </style>
+
+ 
+
+ 
+
+ 
+
+ 
+
+   <!-- MaterializeCSS -->
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+
+ 
+
+ 
+
+</head>
+
+ 
+
+<body>
+
+ 
+
+  <header>
+
+ 
+
+    <header>
+
+        <nav class="nav-wraper">
+
+          <div class="container">
+
+              <a href="index.html" class="brand-logo"><img src="logo.png" alt="FoodieFare logo" width="30px">
+
+              <a href="index.html" data-target="mobile-menu" class="sidenav-trigger">
+
+                  <i class="material-icons">menu</i></a>
+
+   
+
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                  <li><a href="index.html">Home</a></li>
+
+                  <li><a href="account.html">My Account</a></li>
+
+                  <li><a href="cart.html">Cart</a></li>
+
+                  <li><a href="search.html">Search</a></li>
+
+                  <li><a href="signup.html" class="waves-effect waves-light btn">Sign Up</a></li>
+
+                  <li><a href="login.html" class="waves-effect btn">Login</a></li>
+
+              </ul>
+
+          </div>
+
+      </nav>
+
+      </header>
+
+ 
+
+</header>
+
+ 
+
+    <section>
+
+       
+
+    <h3>Welcome to Our Delicious Menu </h3>
+
+      <div class="search-veg-container">
+
+ 
+
+        <input type="text" id="searchBar" placeholder="Search menu...">
+
+ 
+
+        <input type="checkbox" id="vegToggle">
+
+ 
+
+        <label for="vegToggle">Veg Only</label>
+
+ 
+
+    </div>
+
+ 
+
+      <!-- Example for Starters -->
+
+ 
+
+      <div class="menu-category">
+
+ 
+
+          <h2>Starters</h2>
+
+ 
+
+          <div class="menu-items"> <!-- This div contains all starter items and applies flex layout -->
+
+ 
+
+              <% menuItems.filter(item => item.category === 'starters').forEach(item => { %>
+
+ 
+
+                <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>"> <!-- Individual menu item -->
+
+ 
+
+                      <img src="<%= item.imagePath %>" alt="<%= item.name %>">
+
+ 
+
+                      <h3><%= item.name %></h3>
+
+ 
+
+                      <p><%= item.description %></p>
+
+ 
+
+                      <p>$<%= item.price.toFixed(2) %></p>
+
+                      <button class="add-to-cart-btn">Add to Cart</button>
+
+                      <!-- <button onclick="addToCart('<%= item._id %>')">Add to Cart</button> -->
+
+ 
+
+                  </div>
+
+ 
+
+              <% }); %>
+
+ 
+
+          </div>
+
+ 
+
+      </div>
+
+ 
+
+     
+
+ 
+
+      <!-- Example for Drinks -->
+
+ 
+
+      <div class="menu-category">
+
+ 
+
+          <h2>Drinks</h2>
+
+ 
+
+          <div class="menu-items"> <!-- This div contains all drink items and applies flex layout -->
+
+ 
+
+              <% menuItems.filter(item => item.category === 'drinks').forEach(item => { %>
+
+ 
+
+                  <div class="menu-item"> <!-- Individual menu item -->
+
+ 
+
+                      <img src="<%= item.imagePath %>" alt="<%= item.name %>">
+
+ 
+
+                      <h3><%= item.name %></h3>
+
+ 
+
+                      <p><%= item.description %></p>
+
+ 
+
+                      <p>$<%= item.price.toFixed(2) %></p>
+
+ 
+
+                      <button class="add-to-cart-btn">Add to Cart</button>
+
+ 
+
+                      <button class="add-to-cart-btn">Add to Cart</button>
+
+
+
+ 
+
+                  </div>
+
+ 
+
+              <% }); %>
+
+ 
+
+          </div>
+
+ 
+
+      </div>
+
+ 
+
+      <!-- Add additional blocks for other categories as needed -->
+
+ 
+
+  </section>
+
+ 
+
+ 
+
+ 
+
+  <div id="cart"></div>
+
+ 
+
+ 
+
+  <script>
+
+ 
+
+    // function addToCart(itemId) {
+
+ 
+
+    //     fetch('/add-to-cart', {
+
+ 
+
+    //         method: 'POST',
+
+ 
+
+    //         headers: {
+
+ 
+
+    //             'Content-Type': 'application/json',
+
+ 
+
+    //         },
+
+ 
+
+    //         body: JSON.stringify({ itemId: itemId })
+
+ 
+
+    //     })
+
+ 
+
+    //     .then(response => response.json())
+
+ 
+
+    //     .then(data => {
+
+ 
+
+    //         console.log('Success:', data);
+
+ 
+
+    //         // Optionally update UI, for example, a cart item counter
+
+ 
+
+    //     })
+
+ 
+
+    //     .catch((error) => {
+
+ 
+
+    //         console.error('Error:', error);
+
+ 
+
+    //     });
+
+ 
+
+    // }
+
+ 
+
+ 
+
+ 
+
+    document.getElementById('vegToggle').addEventListener('change', function() {
+
+ 
+
+    filterItems();
+
+ 
+
+});
+
+ 
+
+ 
+
+ 
+
+document.getElementById('searchBar').addEventListener('input', function() {
+
+ 
+
+    filterItems();
+
+ 
+
+});
+
+ 
+
+ 
+
+ 
+
+function filterItems() {
+
+ 
+
+    const showVegOnly = document.getElementById('vegToggle').checked;
+
+ 
+
+    const searchQuery = document.getElementById('searchBar').value.toLowerCase();
+
+ 
+
+    const allMenuItems = document.querySelectorAll('.menu-item');
+
+ 
+
+ 
+
+ 
+
+    allMenuItems.forEach(item => {
+
+ 
+
+        const isVeg = item.getAttribute('isVeg') === 'true';
+
+ 
+
+        const itemName = item.querySelector('h3').innerText.toLowerCase();
+
+ 
+
+ 
+
+ 
+
+        // Logic to determine if item should be shown or hidden
+
+ 
+
+        if ((showVegOnly && !isVeg) || !itemName.includes(searchQuery)) {
+
+ 
+
+            item.style.display = 'none';
+
+ 
+
+        } else {
+
+ 
+
+            item.style.display = 'block';
+
+ 
+
+        }
+
+ 
+
+    });
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    </script>
+
+ 
+
+    <script>
+
+ 
+
+      // An object to store items added to the cart
+
+ 
+
+let cart = {};
+
+ 
+
+ 
+
+ 
+
+// Event delegation to listen for click events on Add to Cart buttons
+
+ 
+
+document.body.addEventListener('click', function(event) {
+
+ 
+
+    if (event.target && event.target.classList.contains('add-to-cart-btn')) {
+
+ 
+
+        // Extract item data
+
+ 
+
+        const menuItem = event.target.parentElement;
+
+ 
+
+        const itemId = menuItem.getAttribute('data-id');
+
+ 
+
+        const itemName = menuItem.querySelector('h3').innerText;
+
+ 
+
+ 
+
+ 
+
+        // Add item to cart or increase its quantity
+
+ 
+
+        if(cart[itemId]) {
+
+ 
+
+            cart[itemId].quantity += 1;
+
+ 
+
+        } else {
+
+ 
+
+            cart[itemId] = {
+
+ 
+
+                name: itemName,
+
+ 
+
+                quantity: 1
+
+ 
+
+            };
+
+ 
+
+        }
+
+ 
+
+ 
+
+ 
+
+        // Optional: Update UI, save cart to local storage, etc.
+
+ 
+
+        updateCartUI();
+
+ 
+
+        console.log(cart); // View cart object in console
+
+ 
+
+    }
+
+ 
+
+});
+
+ 
+
+ 
+
+ 
+
+// Update Cart UI (Basic Example)
+
+ 
+
+// ... Your previous JS code ...
+
+ 
+
+ 
+
+ 
+
+// Example function that might be causing the issue
+
+ 
+
+function updateCartUI() {
+
+ 
+
+    const cartDiv = document.getElementById('cart');
+
+ 
+
+ 
+
+ 
+
+    // Make sure that the element is selected properly
+
+ 
+
+    if(cartDiv) {
+
+ 
+
+        cartDiv.innerHTML = '';
+
+ 
+
+ 
+
+ 
+
+        for (const itemId in cart) {
+
+ 
+
+            cartDiv.innerHTML += `<p>${cart[itemId].name}: ${cart[itemId].quantity}</p>`;
+
+ 
+
+        }
+
+ 
+
+    } else {
+
+ 
+
+        console.error('Cart div not found!');
+
+ 
+
+    }
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+document.getElementById('goToCart').addEventListener('click', function() {
+
+ 
+
+        window.location.href = '/cart'; // your cart page route
+
+ 
+
+    });
+
+ 
+
+ 
+
+ 
+
+    </script>
+
+ 
+
+</body>
+
+<footer class="page-footer">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col l6 s12">
+
+                <h5 class="white-text">Market Stall</h5>
+
+                <p class="grey-text text-lighten-4">Discover and reserve market stalls with ease!</p>
+
+            </div>
+
+            <div class="col l4 offset-l2 s12">
+
+                <h5 class="white-text">Quick Links</h5>
+
+                <ul>
+
+                    <li><a class="grey-text text-lighten-3" href="home.html">Home</a></li>
+
+                    <li><a class="grey-text text-lighten-3" href="account.html">My Account</a></li>
+
+                    <li><a class="grey-text text-lighten-3" href="stalls.html">Stalls</a></li>
+
+                    <li><a class="grey-text text-lighten-3" href="cart.html">Cart</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+  </footer>
+
+ 
+
+</html>
+
+ 
+
+ 

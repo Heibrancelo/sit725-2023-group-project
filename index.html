@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,10 @@
     <!-- CSS Stylesheet, Scripts-->
     <link rel="stylesheet" href="main-stylesheet.css">
     <script src="script.js" defer></script>
+    <script src="server.js" defer></script>
+    <script src="displaystalls.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
     <!-- MaterializeCSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -23,18 +28,17 @@
     <header>
         <nav class="nav-wraper">
             <div class="container">
-                <a href="index.html" class="brand-logo"><img src="./images/logo.png" alt="FoodieFare logo" width="30px">
-                <a href="index.html" data-target="mobile-menu" class="sidenav-trigger">
-                    <i class="material-icons">menu</i></a>
+                <a href="index.html" class="brand-logo"><img src="logo.png" alt="FoodieFare logo" width="30px">
+                    <a href="index.html" data-target="mobile-menu" class="sidenav-trigger">
+                        <i class="material-icons">menu</i></a>
 
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="account.html">My Account</a></li>
-                    <li><a href="stalls.html">Stalls</a></li>
-                    <li><a href="search.html">Search</a></li>
-                    <li><a href="signup.html" class="waves-effect waves-light btn">Sign Up</a></li>
-                    <li><a href="login.html" class="waves-effect btn">Login</a></li>
-                </ul>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="account.html">My Account</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="signup.html" class="waves-effect waves-light btn">Sign Up</a></li>
+                        <li><a href="login.html" class="waves-effect btn">Login</a></li>
+                    </ul>
 
 
             </div>
@@ -43,8 +47,7 @@
         <ul class="sidenav" id="mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="account.html">My Account</a></li>
-            <li><a href="stalls.html">Stalls</a></li>
-            <li><a href="search.html">Search</a></li>
+            <li><a href="cart.html">Cart</a></li>
             <li><a href="signup.html" class="waves-effect waves-light btn">Sign Up</a></li>
             <li><a href="login.html" class="waves-effect waves-light btn">Login</a></li>
         </ul>
@@ -54,45 +57,210 @@
 
 
 
+    <body>
+        <section class="hero">
+            <div class="section no-pad-bot" id="index-banner">
+                <div class="container">
+                    <br><br>
 
+                    <!--USERNAME ID -->
+                    <h2 class="header center orange-text">Join Us Today <span id="user-name"></span></h2>
+                    <br>
+                    <br>
 
-    <!-- **** Add content here **** -->
-
-
-
-
-
-
-
-
-    <!--FOOTER-->
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Market Stall</h5>
-                    <p class="grey-text text-lighten-4">Discover and reserve market stalls with ease!</p>
                 </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Quick Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="home.html">Home</a></li>
-                        <li><a class="grey-text text-lighten-3" href="account.html">My Account</a></li>
-                        <li><a class="grey-text text-lighten-3" href="stalls.html">Stalls</a></li>
-                        <li><a class="grey-text text-lighten-3" href="search.html">Search</a></li>
+            </div>
+        </section>
+
+
+        <!-- Markets  -->
+        <section class="markets">
+            <div class="container black-text">
+                <h3>Upcoming Markets</h3>
+
+                <div class="col s12 m5">
+                    <ul class="collapsible">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons circle orange">place</i>Burwood
+                                Market</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons circle orange">place</i>Geelong
+                                Market</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet Lorem ipsum dolor sit
+                                    amet.</span></div>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </footer>
 
-</body>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const elems = document.querySelectorAll('.sidenav');
-        const instances = M.Sidenav.init(elems);
-    });
-</script>
+
+        </section>
+
+
+       
+
+        <!-- Stalls 9 Boxes  -->
+       <section class="list-of-stalls">
+
+            <div class="container black-text">
+
+                <a id="order-now-button"></a>
+
+                <h3>List of Stalls</h3>
+                <div class="row">
+
+                    <div class="col s12 m6 l3">
+                        <div class="card" id="stall-001">
+                            <div class="card-image">
+                                <img src="stall01.jpeg">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Sweet Spice</span>
+                                <p>Offering a multitude of spices, Spice Bazaar brings the essence of various world
+                                    cuisines to your dishes.</p>
+                            </div>
+                            <div class="card-action center">
+                                <a href="#">Enter</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m6 l3">
+                        <div class="card" id="stall-002">
+                            <div class="card-image">
+                                <img src="stall02.jpeg">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Seafood Shack</span>
+                                <p>Seafood lovers unite! Dive into a wide variety of fresh and flavorful seafood options from
+                                    lobsters to crabs.</p>
+                            </div>
+                            <div class="card-action center">
+                                <a href="#">Enter</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s12 m6 l3">
+                        <div class="card" id="stall-003">
+                            <div class="card-image">
+                                <img src="stall03.jpeg">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Pasta Master</span>
+                                <p>Explore the world of pasta with a wonderful mix of classic and innovative recipes, each dish a
+                                    culinary masterpiece.</p>
+                            </div>
+                            <div class="card-action center">
+                                <a href="#">Enter</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s12 m6 l3">
+                        <div class="card" id="stall-004">
+                            <div class="card-image">
+                                <img src="stall04.jpeg">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Vegan Corner</span>
+                                <p>This is our plant-based stall offering a delightful and wide range of vegan options, full of flavor and
+                                    ethical goodness.</p>
+                            </div>
+                            <div class="card-action center">
+                                <a href="#">Enter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        
+        
+        <section class="list-of-stalls">
+            <div class="container black-text">
+                <h3>Newly added Stalls</h3>
+                <div class="row" id="stall-section">
+                    
+                <!-- Stalls will be added here -->
+
+                </div>
+            </div>
+        </section>
+     
+            <!--Add Stall-->
+        <section>
+            <br>
+            <br>
+            <div class="section black-text">
+                <div class="container">
+                            <h4>Don't see a stall in the website?</h4>
+                            <p>Let us know by filling in the form below.</p>
+                
+                    <form id="stall-form" action="">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="stallName" type="text">
+                                <label for="stallName">Stall Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="stallDescription" type="text">
+                                <label for="stallDescription">Stall Description</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="imagePath" type="text">
+                                <label for="imagePath">Image Path</label>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <a class="waves-effect waves-light btn signup-button" id="stall-formSubmit">Submit</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>        
+
+
+
+    
+       
+        <br>
+        <br>
+
+
+
+        <!--FOOTER-->
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Market Stall</h5>
+                        <p class="grey-text text-lighten-4">Discover and reserve market stalls with ease!</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Quick Links</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="home.html">Home</a></li>
+                            <li><a class="grey-text text-lighten-3" href="account.html">My Account</a></li>
+                            <li><a class="grey-text text-lighten-3" href="stalls.html">Stalls</a></li>
+                            <li><a class="grey-text text-lighten-3" href="cart.html">Cart</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+
 
 </html>
