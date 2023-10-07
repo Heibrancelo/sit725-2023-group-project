@@ -6,6 +6,7 @@ let port = process.env.port || 3000;
 let collection;
 let collection2;
 let collection3;
+let collectionStall;
 
 app.use(express.static(__dirname + '/'));
 app.use(express.json());
@@ -45,6 +46,16 @@ async function runDBConnection3() {
         await client.connect();
        collection3 = client.db().collection('Login');
        console.log(collection3);
+    } catch (ex) {
+        console.error(ex);
+    }
+}
+
+async function runDBConnectionStall() {
+    try {
+        await client.connect();
+       collectionStall = client.db().collection('ListofStalls');
+       console.log(collectionStall);
     } catch (ex) {
         console.error(ex);
     }
@@ -106,3 +117,37 @@ app.post('/api/payment', (req,res)=>{
     let payment = req.body;
     postDetails(payment);
 });
+
+
+
+// Add Stall Collection
+app.get('/api/stallInfo', (req,res) => {
+    getStallInfo((err,result)=>{
+        if (!err) {
+            res.json({statusCode:200, data:result, message:'Showing all stalls now'});
+        }
+    });
+});
+
+
+app.post("/api/stallInfo", (req, res) => {
+    let stallInfo = req.body;
+    postStallInfo(stallInfo, res);
+});
+
+
+function postStallInfo(stallInfo, res) {
+    collection4.insertOne(stallInfo, (err, result) => {
+        if (err) {
+            console.error("Error inserting stall info:", err);
+            res.status(500).json({ error: "Internal Server Error" });
+        } else {
+            res.status(201).json({ message: "Stall added successfully" });
+        }
+    });
+ } 
+
+
+function getStallInfo(callback){
+    collection4.find({}).toArray(callback);
+}
