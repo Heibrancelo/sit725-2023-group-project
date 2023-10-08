@@ -63,7 +63,7 @@
                 <h2>Pizzas</h2>
                 <div class="menu-items">
                     <% menuItems.filter(item=> item.category === 'pizza').forEach(item => { %>
-                    <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>">
+                    <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>" data-item="<%= JSON.stringify(item) %>">
                         <img src="<%= item.imagePath %>" alt="<%= item.name %>">
                         <h3>
                             <%= item.name %>
@@ -82,7 +82,7 @@
                 <h2>Burgers</h2>
                 <div class="menu-items">
                     <% menuItems.filter(item=> item.category === 'burger').forEach(item => { %>
-                    <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>">
+                    <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>" data-item="<%= JSON.stringify(item) %>">
                         <img src="<%= item.imagePath %>" alt="<%= item.name %>">
                         <h3>
                             <%= item.name %>
@@ -101,7 +101,7 @@
                 <h2>Drinks</h2>
                 <div class="menu-items">
                     <% menuItems.filter(item=> item.category === 'drinks').forEach(item => { %>
-                    <div class="menu-item">
+                    <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>" data-item="<%= JSON.stringify(item) %>">
                         <img src="<%= item.imagePath %>" alt="<%= item.name %>">
                         <h3>
                             <%= item.name %>
