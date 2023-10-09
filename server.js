@@ -185,7 +185,7 @@ app.post("/api/stallInfo", (req, res) => {
 
 
 function postStallInfo(stallInfo, res) {
-    collection4.insertOne(stallInfo, (err, result) => {
+    collectionStall.insertOne(stallInfo, (err, result) => {
         if (err) {
             console.error("Error inserting stall info:", err);
             res.status(500).json({ error: "Internal Server Error" });
@@ -197,5 +197,5 @@ function postStallInfo(stallInfo, res) {
 
 
 function getStallInfo(callback){
-    collection4.find({}).toArray(callback);
+    collectionStall.find({}).toArray(callback);
 }
