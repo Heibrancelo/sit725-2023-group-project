@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Restaurant Name | Menu</title>
+        <!-- MaterializeCSS -->
+        <link rel="stylesheet" type="text/css" href="/menustyle.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <nav class="nav-wraper">
+                <div class="container">
+                    <a href="index.html" class="brand-logo"><img src="/images/logo.png" alt="FoodieFare logo" width="30px">
+                    <a href="index.html" data-target="mobile-menu" class="sidenav-trigger">
+                    <i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="account.html">My Account</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="signup.html" class="waves-effect waves-light btn">Sign Up</a></li>
+                        <li><a href="login.html" class="waves-effect btn">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <section>
+            <h1>Welcome to the Menu of <%= name %></h1>
+            <div class="search-and-toggle">
+                <input type="text" id="menuSearch" placeholder="Search for items...">
+                <div class="switch">
+                    <label>
+                    Show Veg
+                    <input type="checkbox" id="vegToggle">
+                    <span class="lever"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="menu-category">
+                <h2>Starters</h2>
+                <div class="menu-items">
+                    <% menuItems.filter(item=> item.category === 'starters').forEach(item => { %>
+                    <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>" data-item="<%= JSON.stringify(item) %>">
+                        <img src="<%= item.imagePath %>" alt="<%= item.name %>">
+                        <h3>
+                            <%= item.name %>
+                        </h3>
+                        <p>
+                            <%= item.description %>
+                        </p>
+                        <p>$<%= item.price.toFixed(2) %>
+                        </p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="menu-category">
+                <h2>Pizzas</h2>
+                <div class="menu-items">
+                    <% menuItems.filter(item=> item.category === 'pizza').forEach(item => { %>
+                    <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>" data-item="<%= JSON.stringify(item) %>">
+                        <img src="<%= item.imagePath %>" alt="<%= item.name %>">
+                        <h3>
+                            <%= item.name %>
+                        </h3>
+                        <p>
+                            <%= item.description %>
+                        </p>
+                        <p>$<%= item.price.toFixed(2) %>
+                        </p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="menu-category">
+                <h2>Burgers</h2>
+                <div class="menu-items">
+                    <% menuItems.filter(item=> item.category === 'burger').forEach(item => { %>
+                    <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>" data-item="<%= JSON.stringify(item) %>">
+                        <img src="<%= item.imagePath %>" alt="<%= item.name %>">
+                        <h3>
+                            <%= item.name %>
+                        </h3>
+                        <p>
+                            <%= item.description %>
+                        </p>
+                        <p>$<%= item.price.toFixed(2) %>
+                        </p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="menu-category">
+                <h2>Drinks</h2>
+                <div class="menu-items">
+                    <% menuItems.filter(item=> item.category === 'drinks').forEach(item => { %>
+                    <div class="menu-item" data-veg="<%= item.isVeg %>" data-name="<%= item.name.toLowerCase() %>" data-item="<%= JSON.stringify(item) %>">
+                        <img src="<%= item.imagePath %>" alt="<%= item.name %>">
+                        <h3>
+                            <%= item.name %>
+                        </h3>
+                        <p>
+                            <%= item.description %>
+                        </p>
+                        <p>$<%= item.price.toFixed(2) %>
+                        </p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+        
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+        <script src="menuscript.js"></script>
+    </body>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Market Stall</h5>
+                    <p class="grey-text text-lighten-4">Discover and reserve market stalls with ease!</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Quick Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="home.html">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="account.html">My Account</a></li>
+                        <li><a class="grey-text text-lighten-3" href="stalls.html">Stalls</a></li>
+                        <li><a class="grey-text text-lighten-3" href="search.html">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</html>

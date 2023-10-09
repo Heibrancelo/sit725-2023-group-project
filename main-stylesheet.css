@@ -1,0 +1,22 @@
+/* Custom Fancy Theme */
+body {
+    background-color: #ffffff;
+    color: #FFFFFF;
+    margin: 1rem;
+}
+
+nav, footer {
+    background-color: #F5A !important;
+}
+
+.btn {
+    background-color: #ffffff !important;
+    color: #333 !important;
+}
+
+.btn:hover {
+    background-color: rgb(66, 73, 254) ;
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
