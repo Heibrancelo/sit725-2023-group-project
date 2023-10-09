@@ -65,30 +65,34 @@ function generatePDF() {
     //     y:0
    // });
 }
-    const formSubmitted = () => {
-        let formData = {};
-        formData.cardholder=$('#card-holder').val()
-        formData.cardnumber = $('#card-number').val();
-        formData.cvv = $('#cvv').val();
-        formData.month = $('#month').val();
-        formData.year = $('#yearDropdown').val();
-        formData.paymentMode= $('#paymentMode').val()
-        // formData.paymentDate=new Date().getDate;
-        // formData.paymentTime= new Date().getTime
+const formSubmitted = () => {
+    let formData = {};
+    const currentDate = new Date();  // Define currentDate here
+
+    formData.cardholder = $('#card-holder').val();
+    formData.cardnumber = $('#card-number').val();
+    formData.cvv = $('#cvv').val();
+    formData.month = $('#month').val();
+    formData.year = $('#yearDropdown').val();
+    formData.paymentMode = $('#paymentMode').val();
+    formData.paymentDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+    formData.paymentTime = `${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}`;
+
     // Additional content below h4
     console.log(formData);
     postDetails(formData);
     // ... (add more pdf.text lines for your additional content) ...
 
     // Save the PDF with a specific name
-
 }
+
 
 const payatStallDetails = () => {
     let formData = {};
     formData.paymentMode= $('#paymentMode').val()
-    // formData.paymentDate=new Date().getDate;
-    // formData.paymentTime= new Date().getTime
+    formData.paymentDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+    formData.paymentTime = `${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}`;
+
 // Additional content below h4
 console.log(formData);
 postDetails(formData);
@@ -98,21 +102,22 @@ function postDetails(payment){
     
     console.log(payment);
     $.ajax({
-        url:'/api/payment',
-        type:'POST',
-        data:payment,
-       
-        success: (result)=>{
-            if (result.statusCode === 201) {
-                alert('payment successful');
+        url: '/api/payment',
+        type: 'POST',
+        data: payment,
+        success: function (result) {
+            if (result.statusCode === 201 || result.statusCode === 200) {
+                alert('Payment successful');
             }
+            console.log('Success:', result.statusCode, result.requestMethod);
         },
         error: (xhr, status, error) => {
             console.error('Error:', error);
             console.error('Status:', status);
             console.error('Response Text:', xhr.responseText);
     }
-})    }
+    
+})   }
     
 $(document).ready(function () {
     $('#card-number').on('blur', function () {
@@ -132,7 +137,7 @@ $(document).ready(function () {
         $('#submit').click(()=>{
            console.log('submit')
             formSubmitted();
-            alert('Payment Successful');
+            alert('Payment successful');
             window.location.reload()
         });
        

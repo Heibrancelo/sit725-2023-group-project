@@ -21,33 +21,48 @@ const client = new MongoClient(uri, {
 // Assign port to 3000
 port = 3000;
 
-app.listen(port, () => {
-  console.log("Web server running at: http://localhost:3000");
-  runDBConnection();
-});
+
 
 app.use(express.static('public'));
+
 
 async function runDBConnection() {
     try {
         await client.connect();
        collectionpayment = client.db().collection('PaymentDetails');
-       console.log(collection);
+       console.log(collectionpayment);
     } catch (ex) {
         console.error(ex);
     }
 }
-function postDetails(payment) {
-    collectionpayment.insertOne(payment);
+
+app.listen(port, () => {
+    console.log("Web server running at: http://localhost:3000");
+    runDBConnection();
+  });       
+
+  function postDetails(payment, callback) {
+    collectionpayment.insertOne(payment, (err, result) => {
+        if (err) {
+            console.error('Error inserting payment details:', err);
+            callback(err, null);
+        } else {
+            console.log('Payment details inserted successfully:', result);
+            callback(null, result);
+        }
+    });
 }
-app.post('/api/payment', (req,res)=>{
+app.post('/api/payment', (req, res) => {
     let payment = req.body;
-    postDetails(payment);
+    postDetails(payment, (err, result) => {
+        if (err) {
+            console.error('Error in /api/payment route:', err);
+            res.status(500).json({ statusCode: 500, error: 'Internal Server Error', message: err.message });
+        } else {
+            res.status(201).json({ statusCode: 201, data: result, message: 'success' });
+        }
+    });
 });
-
-
-        
-
 
 
 
