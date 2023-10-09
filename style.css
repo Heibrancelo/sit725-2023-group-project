@@ -6,12 +6,12 @@ body {
 }
 
 
-    .login-button {
+.login-button {
     background-color: green;
     margin-top: 50px;
-    }
-    .signup-button {
-        background-color: green;
-        margin-top: 50px;
-        }
+}
 
+.signup-button {
+    background-color: green;
+    margin-top: 50px;
+}

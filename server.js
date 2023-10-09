@@ -23,8 +23,8 @@ const client = new MongoClient(uri, {
 async function runDBConnection() {
     try {
         await client.connect();
-       collection = client.db().collection('Signup');
-       console.log(collection);
+        collection = client.db().collection('Signup');
+        console.log(collection);
     } catch (ex) {
         console.error(ex);
     }
@@ -33,8 +33,8 @@ async function runDBConnection() {
 async function runDBConnection2() {
     try {
         await client.connect();
-       collection2 = client.db().collection('Feedback');
-       console.log(collection2);
+        collection2 = client.db().collection('Feedback');
+        console.log(collection2);
     } catch (ex) {
         console.error(ex);
     }
@@ -43,8 +43,8 @@ async function runDBConnection2() {
 async function runDBConnection3() {
     try {
         await client.connect();
-       collection3 = client.db().collection('Login');
-       console.log(collection3);
+        collection3 = client.db().collection('Login');
+        console.log(collection3);
     } catch (ex) {
         console.error(ex);
     }
@@ -55,7 +55,7 @@ app.get('/', function (req, res) {
 });
 
 
-app.post('/api/signup', (req,res)=>{
+app.post('/api/signup', (req, res) => {
     let signup = req.body;
     postSignup(signup);
 });
@@ -64,7 +64,7 @@ function postSignup(signup) {
     collection.insertOne(signup);
 }
 
-app.post('/api/feedback', (req,res)=>{
+app.post('/api/feedback', (req, res) => {
     let feedback = req.body;
     postFeedback(feedback);
 });
@@ -73,7 +73,7 @@ function postFeedback(feedback) {
     collection2.insertOne(feedback);
 }
 
-app.post('/api/login', (req,res)=>{
+app.post('/api/login', (req, res) => {
     let login = req.body;
     postLogin(login);
 });
