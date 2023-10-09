@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="main-stylesheet.css">
     <script src="script.js" defer></script>
     <script src="server.js" defer></script>
-    <script src="displaystalls.js" defer></script>
+    <script src="addstalls.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
@@ -97,13 +97,7 @@
                     </ul>
                 </div>
             </div>
-
-
-
         </section>
-
-
-       
 
         <!-- Stalls 9 Boxes  -->
        <section class="list-of-stalls">
@@ -118,7 +112,7 @@
                     <div class="col s12 m6 l3">
                         <div class="card" id="stall-001">
                             <div class="card-image">
-                                <img src="./images/stall-icon.jpeg">
+                                <img src="./stall01.jpeg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title">Sweet Spice</span>
@@ -126,7 +120,7 @@
                                     cuisines to your dishes.</p>
                             </div>
                             <div class="card-action center">
-                                <a href="#">Enter</a>
+                                <a href="/menu?name=Sweet%20Spice&id=1">Enter</a>
                             </div>
                         </div>
                     </div>
@@ -134,7 +128,7 @@
                     <div class="col s12 m6 l3">
                         <div class="card" id="stall-002">
                             <div class="card-image">
-                                <img src="./images/stall-icon.jpeg">
+                                <img src="./stall02.jpeg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title">Seafood Shack</span>
@@ -142,7 +136,7 @@
                                     lobsters to crabs.</p>
                             </div>
                             <div class="card-action center">
-                                <a href="#">Enter</a>
+                                <a href="/menu?name=Seafood%20Shack&id=2" >Enter</a>
                             </div>
                         </div>
                     </div>
@@ -151,7 +145,7 @@
                     <div class="col s12 m6 l3">
                         <div class="card" id="stall-003">
                             <div class="card-image">
-                                <img src="./images/stall-icon.jpeg">
+                                <img src="./stall03.jpeg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title">Pasta Master</span>
@@ -159,7 +153,7 @@
                                     culinary masterpiece.</p>
                             </div>
                             <div class="card-action center">
-                                <a href="#">Enter</a>
+                                <a href="/menu?name=Pasta%20Master&id=3" >Enter</a>
                             </div>
                         </div>
                     </div>
@@ -168,7 +162,7 @@
                     <div class="col s12 m6 l3">
                         <div class="card" id="stall-004">
                             <div class="card-image">
-                                <img src="./images/stall-icon.jpeg">
+                                <img src="./stall04.jpeg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title">Vegan Corner</span>
@@ -176,13 +170,13 @@
                                     ethical goodness.</p>
                             </div>
                             <div class="card-action center">
-                                <a href="#">Enter</a>
+                                <a href="/menu?name=Vegan%20Corner&id=4" >Enter</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section> 
         
         
         <section class="list-of-stalls">
@@ -208,24 +202,25 @@
                     <form id="stall-form" action="">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="stallName" type="text">
+                                <input id="stallName" class="validate" type="text">
                                 <label for="stallName">Stall Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="stallDescription" type="text">
+                                <input id="stallDescription" class="validate" type="text">
                                 <label for="stallDescription">Stall Description</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="imagePath" type="text">
+                                <input id="imagePath" class="validate" type="text">
                                 <label for="imagePath">Image Path</label>
                             </div>
                         </div>
                         <div class="center">
-                            <a class="waves-effect waves-light btn signup-button" id="stall-formSubmit">Submit</a>
+                            <button type="button" class="waves-effect waves-light btn signup-button" id="stall-formSubmit">Submit</button>
+
                         </div>
                     </form>
                 </div>
