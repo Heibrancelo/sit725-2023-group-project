@@ -22,13 +22,13 @@
 
 </head>
 
-Cart
+
 
 <!--HEADER-->
 <header>
     <nav class="nav-wraper">
         <div class="container">
-            <a href="index.html" class="brand-logo"><img src="logo.png" alt="FoodieFare logo"
+            <a href="index.html" class="brand-logo"><img src="./images/logo.png" alt="FoodieFare logo"
                     class="brand-logo" id="logo">
                 <a href="index.html" data-target="mobile-menu" class="sidenav-trigger">
                     <i class="material-icons">menu</i></a>
@@ -36,7 +36,9 @@ Cart
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="index.html">Home</a></li>
             <li><a href="account.html">My Account</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="stalls.html">Stalls</a></li>
+            <li><a href="query.html">Query</a></li>
+            <li><a href="paymenthistory.html">Payment History</a></li>
         </ul>
 
 
@@ -46,7 +48,8 @@ Cart
     <ul class="sidenav" id="mobile-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="account.html">My Account</a></li>
-        <li><a href="cart.html">Cart</a></li>
+        <li><a href="query.html">Query</a></li>
+        <li><a href="paymenthistory.html">Payment History</a></li>
     </ul>
 
 </header>
@@ -141,10 +144,10 @@ Cart
       <h4>Pay with Cash at the stall counter</h4>
       <p>Download the token and show it to the cashier at stall</p>
     </div>
-    <input type="hidden" name="paymentMode" value="Debit/Credit Card">
+
     <div class="modal-footer">
-        <input type="hidden" id="payStallMode" value="Pay at Stall">
-      <a class="modal-close waves-effect waves-green btn-flat" onclick="generatePDF()">Download</a>
+        <input type="hidden" id="payStallMode" value="Pay at Stall" class="validate">
+      <a class="modal-close waves-effect waves-green btn-flat" onclick="generatePDF()" id="download" href="paymenthistory.html">Download</a>
     </div>
 
 </div>
@@ -206,7 +209,7 @@ Cart
 
                     <!-- Add more form fields or rows as needed -->
                    
-                    <button type="submit" class="btn" id="submit">Submit</button>
+                    <button type="submit" class="btn" id="submit" href="paymenthistory.html">Submit</button>
                 </form>
             </div>
         </div>
@@ -249,7 +252,9 @@ Cart
                             <ul>
                                 <li><a class="grey-text text-lighten-3" href="home.html">Home</a></li>
                                 <li><a class="grey-text text-lighten-3" href="account.html">My Account</a></li>
-                                <li><a class="grey-text text-lighten-3" href="cart.html">Cart</a></li>
+                                <li><a class="grey-text text-lighten-3" href="query.html">Query</a></li>
+                                <li><a class="grey-text text-lighten-3" href="contact.html">Help</a></li>
+                                <li><a class="grey-text text-lighten-3" href="paymenthistory.html">PaymentHistory</a></li>
                             </ul>
                         </div>
                     </div>

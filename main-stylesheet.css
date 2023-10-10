@@ -5,7 +5,8 @@ body {
     margin: 1rem;
 }
 
-nav, footer {
+nav,
+footer {
     background-color: #F5A !important;
 }
 
@@ -15,8 +16,7 @@ nav, footer {
 }
 
 .btn:hover {
-    background-color: rgb(66, 73, 254) ;
+    background-color: rgb(66, 73, 254);
     transform: scale(1.05);
     transition: transform 0.3s;
 }
-
