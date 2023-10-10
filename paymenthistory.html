@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment History | Foodie Fare</title>
+    <!-- Include your CSS Stylesheet, if any -->
+    
+    
+        <!-- Your scripts -->
+        <!-- CSS Stylesheet, Scripts-->
+        <link rel="stylesheet" href="payment.css">
+        <!-- MaterializeCSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+       
+    
+    
+
+<body>
+ <header>
+        <nav class="nav-wraper">
+            <div class="container">
+                <a href="index.html" class="brand-logo"><img src="./images/logo.png" alt="FoodieFare logo"
+                        class="brand-logo" id="logo">
+                    <a href="index.html" data-target="mobile-menu" class="sidenav-trigger">
+                        <i class="material-icons">menu</i></a>
+            </div>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="account.html">My Account</a></li>
+                <li><a href="query.html">Query</a></li>
+                <li><a href="contact.html">Help</a></li>
+            </ul>
+    
+    
+            </div>
+        </nav>
+        <!--Mobile Side Nav-->
+        <ul class="sidenav" id="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="search.html">Search</a></li>
+        </ul>
+    
+    </header>
+
+    <main>
+        <div class="container">
+            <h3>Payment History</h3>
+            <!-- Display Payment History Data Here -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment Mode</th>
+                        <th>Payment Date</th>
+                        <th>Payment Time</th>
+                    </tr>
+                </thead>
+                <tbody id="payment-history-table">
+                    <!-- Payment History Data Will be Appended Here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Include your footer content here -->
+    </footer>
+
+    <!-- Include your JavaScript files here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="paymenthistory.js" defer></script>
+    <script src="server.js" defer></script>
+</body>
+
+</html>

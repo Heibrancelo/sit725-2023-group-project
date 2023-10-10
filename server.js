@@ -326,19 +326,29 @@ async function postDetails(payment) {
 
 }
 
-app.post('/api/payment', (req,res)=>{
-
+app.post('/api/payment',async (req, res) => {
     let payment = req.body;
-
-    postDetails(payment);
-
+    await postDetails(payment, (err, result) => {
+        if (err) {
+            console.error('Error in /api/payment route:', err);
+            res.status(500).json({ statusCode: 500, error: 'Internal Server Error', message: err.message });
+        } else {
+            res.status(201).json({ statusCode: 201, data: result, message: 'success' });
+        }
+    });
 });
 
- 
+app.get('/api/payment-history', async (req, res) => {
+    const result = await collectionpayment.find({}).toArray();
+    res.status(200).json({ statusCode: 200, data: result, message: 'success' });
+})
 
  
+async function postDetails(payment, callback) {
+    const result = await collectionpayment.insertOne(payment);
+    callback(null, result);
+}
 
- 
 
 // Add Stall Collection
 
@@ -373,7 +383,6 @@ app.post("/api/stallInfo", (req, res) => {
  
 
 async function postStallInfo(stallInfo, callback) {
-    console.log("hi there")
    const result= await  collectionStall.insertOne(stallInfo) 
    callback(null, result)
 }

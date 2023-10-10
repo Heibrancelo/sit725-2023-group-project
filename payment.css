@@ -1,0 +1,112 @@
+header {
+    width: 100%;
+    height: 98px;
+    left: -1px;
+    
+}
+
+footer{
+    width: 100% ; 
+    
+}
+
+nav {
+        background-color: #fff;
+        width: 100%;
+}
+
+#logo {
+    width: 100%;
+    height: 53px;
+    position:relative;
+   
+    top: 4px;
+}
+
+.row-button {
+    height: 100px; /* Set the height of the row */
+    background-color: #e0e0e0; /* Background color for the button-like appearance */
+    cursor: pointer; /* Add pointer cursor for better user interaction */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    width: 100%; 
+}
+
+.custom-image {
+    width: 200px; /* Set the desired width for all images */
+    height: 150px; /* Set the desired height for all images */
+}
+
+#additional-content{
+    display: none;
+     margin-top: 50px;
+}
+
+
+
+.container {
+    margin-top: 20px;
+}
+
+h5 {
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 1px solid #ddd;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+#total-items-display,
+#total-price-display,
+#tax-display,
+#code,
+#display-total-price {
+    font-size: 18px;
+}
+
+#code {
+    width: 60%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+#display-total-price {
+    font-weight: bold;
+    color: #e53935; /* Red color for emphasis */
+}
+#billsummary {
+    margin: auto;
+    background-color: #ddd;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    font-family: 'Arial', sans-serif;
+    color: rgb(65, 65, 65);
+    padding: 4vh;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+/* .summary {
+    margin: auto;
+    background-color: #ddd;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    
+    
+    float: right;
+    width: 50%; */
