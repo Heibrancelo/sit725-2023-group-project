@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Function to fetch stalls from an API
   function fetchStalls() {
+    console.log("sad")
     // Make a network request to a specified API endpoint 
     fetch("http://localhost:3000/")
       .then((response) => response.json()) // Parse the response as JSON
